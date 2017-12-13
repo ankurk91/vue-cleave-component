@@ -10,6 +10,8 @@
 
 Vue.js v2.x component for [Cleave.js](http://nosir.github.io/cleave.js/) 
 
+## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/aza302c7/)
+
 ## Features
 * Reactive ``v-model`` value
     - You can change input value programmatically 
@@ -18,6 +20,7 @@ Vue.js v2.x component for [Cleave.js](http://nosir.github.io/cleave.js/)
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
+* Option to disable `raw` mode to get masked value 
 
 ## Installation
 ```bash
@@ -37,7 +40,7 @@ yarn add vue-cleave-component
 </template>
 
 <script>
-  import cleave from 'vue-cleave-component';
+  import Cleave from 'vue-cleave-component';
     
   export default {    
     data () {
@@ -50,7 +53,7 @@ yarn add vue-cleave-component
       }
     },
     components: {
-      cleave
+      Cleave
     }
   }
 </script>
@@ -59,27 +62,27 @@ yarn add vue-cleave-component
 ### As plugin
 ```js
   import Vue from 'vue';
-  import cleave from 'vue-cleave-component';
-  Vue.use(cleave);
+  import Cleave from 'vue-cleave-component';
+  Vue.use(Cleave);
 ```
 This will register a global component `<cleave>` 
 
 ## Available props
 The component accepts these props:
 
-| Attribute        | Type             | Default     | Description      |
-| :---             | :---:            | :---:       | :---             |
-| v-model / value  | String / null    | `null`      | Set or Get input value (required) |
-| options          | Object           | `{}`        | Cleave.js [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) |
-| raw              | Boolean          | `true`      | When set to `false` emits formatted value with format pattern and delimiter |
-| type             | String           | `text`      | Set input type for eg: `tel` |
+| Attribute        | Type                   | Default     | Description      |
+| :---             | :---:                  | :---:       | :---             |
+| v-model / value  | String / Number / null | `null`      | Set or Get input value (required) |
+| options          | Object                 | `{}`        | Cleave.js [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) |
+| raw              | Boolean                | `true`      | When set to `false`; emits formatted value with format pattern and delimiter |
+| type             | String                 | `text`      | Set input type; for eg: `tel` |
 
 ## Install in non-module environments (without webpack)
 * Include required files
 ```html
-<!-- cleave.js files -->
+<!-- cleave.js -->
 <script src="https://unpkg.com/cleave.js@1/dist/cleave.min.js"></script>
-<!-- Vue js -->
+<!-- Vue.js -->
 <script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-cleave-component"></script>
@@ -90,7 +93,7 @@ The component accepts these props:
     <cleave v-model="card" :options="options"></cleave> 
 </main>
 <script>
-  // Initialize 
+  // Initialize global component
   Vue.use(VueCleave);
   
   new Vue({
@@ -114,7 +117,7 @@ The component accepts these props:
 
 ### Testing
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
-* Tests can be found in `__test__` folder.
+* Tests can be found in `__test__` folder
 * Execute tests with this command `yarn test`
 
 ## Changelog

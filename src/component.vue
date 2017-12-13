@@ -20,7 +20,7 @@
         type: Object,
         default: () => ({})
       },
-      // Set this to false to emit masked value
+      // Set this prop to false to emit masked value
       raw: {
         type: Boolean,
         default: true
@@ -73,7 +73,7 @@
       },
 
       /**
-       * Watch for changes from parent component and notify cleave
+       * Watch for changes from parent component and notify cleave instance
        *
        * @param newValue
        */

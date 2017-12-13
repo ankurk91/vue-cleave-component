@@ -46,7 +46,7 @@
 
           <div class="form-group">
             <label>Enter date with <code>:raw="false"</code></label>
-            <cleave v-model="form.date" class="form-control" :raw="false" :options="options.date"></cleave>
+            <cleave placeholder="dd/mm/yyyy" v-model="form.date" class="form-control" :raw="false" :options="options.date"></cleave>
             <small class="form-text text-muted">{{form.date}}</small>
           </div>
 
@@ -103,7 +103,7 @@
           cardNumberDirective: null,
           phoneNumber: null,
           date: null,
-          number: null
+          number: null,
         },
         options: {
           creditCard: {
