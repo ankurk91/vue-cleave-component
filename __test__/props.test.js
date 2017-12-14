@@ -23,7 +23,7 @@ describe('Cleave props', () => {
   });
 
   afterEach(() => {
-    wrapper.vm.$destroy();
+    wrapper.destroy();
   });
 
   test('accepts options via prop', () => {

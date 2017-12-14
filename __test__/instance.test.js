@@ -28,7 +28,7 @@ describe('Cleave component', () => {
 
 
   test('clean up on destroy', () => {
-    wrapper.vm.$destroy();
+    wrapper.destroy();
     expect(wrapper.isEmpty()).toBe(true);
     expect(wrapper.vm.$data.cleave).toBe(null);
   });
