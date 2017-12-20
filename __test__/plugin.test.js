@@ -1,22 +1,18 @@
-import Plugin from '../src/index';
-import {mount} from 'vue-test-utils';
-// Lets import full build
-import Vue from 'vue/dist/vue.common';
-
-Vue.config.productionTip = false;
+import Component from '../src/index';
+import {mount, createLocalVue} from 'vue-test-utils';
 
 describe('Cleave global component', () => {
 
   // Make a copy of local vue
-  let localVue = Vue.extend();
+  let localVue = createLocalVue();
   // Define a global component
-  localVue.use(Plugin);
+  localVue.use(Component, 'cleave-input');
 
   test('works as plugin', () => {
 
     let app = localVue.component('app', {
       template: `<div id="app">
-                  <cleave class="form-control"  name="card" v-model="number"></cleave>
+                  <cleave-input class="form-control"  name="card" v-model="number"></cleave-input>
                  </div>`,
       data() {
         return {
@@ -29,10 +25,12 @@ describe('Cleave global component', () => {
       localVue
     });
 
-    let elem = wrapper.vm.$el.firstChild;
-    expect(elem.tagName).toBe('INPUT');
-    expect(elem.getAttribute('class')).toContain('form-control');
-    expect(elem.getAttribute('name')).toBe('card');
+    expect(wrapper.contains(Component)).toBe(true);
+
+    let input = wrapper.find(Component);
+    expect(input.is('input')).toBe(true);
+    expect(input.classes()).toContain('form-control');
+    expect(input.vm.$el.getAttribute('name')).toBe('card');
 
   });
 

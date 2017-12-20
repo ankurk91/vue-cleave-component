@@ -3,7 +3,7 @@ import {shallow} from 'vue-test-utils'
 import Component from '../src/component.vue';
 
 
-describe('Cleave props', () => {
+describe('Cleave watchers', () => {
 
   // Store for future usage
   const props = {
@@ -18,7 +18,6 @@ describe('Cleave props', () => {
 
   beforeEach(() => {
     wrapper = shallow(Component, {
-      attachToDocument: true,
       propsData: props
     });
   });

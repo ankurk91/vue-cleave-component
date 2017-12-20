@@ -17,7 +17,6 @@ describe('Cleave props', () => {
 
   beforeEach(() => {
     wrapper = shallow(Component, {
-      attachToDocument: true,
       propsData: props
     });
   });
@@ -46,9 +45,9 @@ describe('Cleave props', () => {
     expect(vModel.validator(false)).toBe(false);
     expect(vModel.validator(undefined)).toBe(false);
     expect(vModel.validator(new Date())).toBe(false);
-    expect(vModel.validator(null)).toBe(true);
     expect(vModel.validator(['123', '456'])).toBe(false);
 
+    expect(vModel.validator(null)).toBe(true);
     expect(vModel.validator('2017-12-12')).toBe(true);
     expect(vModel.validator(+new Date())).toBe(true);
     expect(vModel.validator(null)).toBe(true);

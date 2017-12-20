@@ -2,13 +2,12 @@ import {shallow} from 'vue-test-utils'
 
 import Component from '../src/component.vue';
 
-describe('Cleave component', () => {
+describe('Cleave component instance', () => {
 
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(Component, {
-      attachToDocument: true,
       propsData: {
         value: null,
         options: {
