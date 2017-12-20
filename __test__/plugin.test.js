@@ -1,4 +1,5 @@
 import Plugin from '../src/index';
+import {mount} from 'vue-test-utils';
 // Lets import full build
 import Vue from 'vue/dist/vue.common';
 
@@ -13,9 +14,9 @@ describe('Cleave global component', () => {
 
   test('works as plugin', () => {
 
-    let app = localVue.extend({
+    let app = localVue.component('app', {
       template: `<div id="app">
-                  <cleave class="form-control"  name="card" :value="number"></cleave>
+                  <cleave class="form-control"  name="card" v-model="number"></cleave>
                  </div>`,
       data() {
         return {
@@ -24,9 +25,11 @@ describe('Cleave global component', () => {
       }
     });
 
-    let wrapper = new app().$mount();
+    let wrapper = mount(app, {
+      localVue
+    });
 
-    let elem = wrapper.$el.firstChild;
+    let elem = wrapper.vm.$el.firstChild;
     expect(elem.tagName).toBe('INPUT');
     expect(elem.getAttribute('class')).toContain('form-control');
     expect(elem.getAttribute('name')).toBe('card');
