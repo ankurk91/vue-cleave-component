@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" @input="onInput($event)"/>
+  <input :type="type" @input="onInput"/>
 </template>
 
 <script type="text/javascript">
@@ -37,7 +37,7 @@
       }
     },
     mounted() {
-      /* istanbul ignore else */
+      /* istanbul ignore if */
       if (this.cleave) return;
 
       this.cleave = new Cleave(this.$el, this.options);
@@ -48,18 +48,18 @@
        * Watch for value changed by cleave and notify parent component
        * Note: we have to wait for DOM to get updated by cleave.js in order to get final value
        *
-       * @param $event
+       * @param event
        */
-      onInput($event) {
+      onInput(event) {
         this.$nextTick(() => {
-          let value = this.raw ? this.cleave.getRawValue() : $event.target.value;
+          let value = this.raw ? this.cleave.getRawValue() : event.target.value;
           this.$emit('input', value);
         })
       },
     },
     watch: {
       /**
-       * Watch for any option changes and redraw
+       * Watch for any changes in options and redraw
        *
        * @param newOptions Object
        */
