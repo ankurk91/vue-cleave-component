@@ -10,7 +10,7 @@ describe('Cleave global component', () => {
 
   test('works as plugin', () => {
 
-    let app = localVue.component('app', {
+    let app = {
       template: `<div id="app">
                   <cleave-input class="form-control"  name="card" v-model="number"></cleave-input>
                  </div>`,
@@ -19,7 +19,7 @@ describe('Cleave global component', () => {
           number: ''
         }
       }
-    });
+    };
 
     let wrapper = mount(app, {
       localVue
@@ -30,7 +30,7 @@ describe('Cleave global component', () => {
     let input = wrapper.find(Component);
     expect(input.is('input')).toBe(true);
     expect(input.classes()).toContain('form-control');
-    expect(input.vm.$el.getAttribute('name')).toBe('card');
+    expect(input.attributes().name).toBe('card');
 
   });
 

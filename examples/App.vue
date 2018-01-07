@@ -26,16 +26,9 @@
         <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
 
           <div class="form-group">
-            <label>Enter credit card</label>
+            <label>Enter credit card <code v-text="cardType"></code></label>
             <cleave type="tel" v-model="form.cardNumber" class="form-control" :options="options.creditCard"></cleave>
             <small class="form-text text-muted">{{form.cardNumber}}</small>
-          </div>
-
-          <div class="form-group">
-            <label>Enter credit card <code>:raw="false"</code></label>
-            <cleave v-model="form.cardNumberRaw" class="form-control" :raw="false"
-                    :options="options.creditCard"></cleave>
-            <small class="form-text text-muted">{{form.cardNumberRaw}}</small>
           </div>
 
           <div class="form-group">
@@ -45,8 +38,9 @@
           </div>
 
           <div class="form-group">
-            <label>Enter date with <code>:raw="false"</code></label>
-            <cleave placeholder="dd/mm/yyyy" v-model="form.date" class="form-control" :raw="false" :options="options.date"></cleave>
+            <label>Enter date <code>:raw="false"</code></label>
+            <cleave placeholder="dd/mm/yyyy" v-model="form.date" class="form-control" :raw="false"
+                    :options="options.date"></cleave>
             <small class="form-text text-muted">{{form.date}}</small>
           </div>
 
@@ -76,8 +70,8 @@
               <li><a href="https://www.npmjs.com/package/vue-cleave-component" target="_blank">npm</a></li>
               <li><a href="https://github.com/nosir/cleave.js" rel="noreferrer" target="_blank">Cleave.js</a></li>
               <li><a
-                      href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
-                      rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
+                href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+                rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
             </ul>
           </div>
         </div>
@@ -97,18 +91,19 @@
     name: 'app',
     data() {
       return {
+        cardType: null,
         form: {
           cardNumber: null,
-          cardNumberRaw: '4111-1111-1111-1111',
-          cardNumberDirective: null,
           phoneNumber: null,
           date: null,
           number: null,
         },
+        // https://github.com/nosir/cleave.js/blob/master/doc/options.md
         options: {
           creditCard: {
             creditCard: true,
             delimiter: '-',
+            onCreditCardTypeChanged: this.onCardChange
           },
           phoneNumber: {
             phone: true,
@@ -139,6 +134,10 @@
       submit() {
         console.log('Form submit event');
         console.log(this.form);
+      },
+      onCardChange(type) {
+        console.log('cardType: ', type);
+        this.cardType = type
       }
     },
   }

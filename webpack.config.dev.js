@@ -63,9 +63,7 @@ module.exports = {
         removeAttributeQuotes: false,
         minifyJS: false,
         minifyCSS: false,
-        minifyURLs: false
-        // More options here
-        // https://github.com/kangax/html-minifier#options-quick-reference
+        minifyURLs: false,
       }
     }),
     new webpack.ProvidePlugin({

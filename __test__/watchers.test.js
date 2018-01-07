@@ -34,11 +34,13 @@ describe('Cleave watchers', () => {
 
   test('emits input event', (done) => {
     wrapper.vm.$el.value = '012346789';
+    let stub = jest.fn();
+    wrapper.vm.$on('input', stub);
     wrapper.trigger('input');
 
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted().input.length).toEqual(1);
-      expect(wrapper.emitted().input[0]).toEqual(['012346789']);
+      expect(stub).toHaveBeenCalled();
+      expect(wrapper.emitted('input').length).toEqual(1);
       done();
     });
   });

@@ -5,7 +5,7 @@ import Component from '../src/component.vue';
 describe('Cleave raw prop', () => {
 
   let localVue = createLocalVue();
-  let app = localVue.component('app', {
+  let app = {
     template: `<div id="app">
                   <cleave :options="options" :raw="raw" v-model="model"></cleave>
                  </div>`,
@@ -21,7 +21,7 @@ describe('Cleave raw prop', () => {
     components: {
       cleave: Component
     }
-  });
+  };
 
   let wrapper = null;
 
