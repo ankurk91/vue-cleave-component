@@ -1,6 +1,6 @@
 {
   "name": "vue-cleave-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vue.js component for cleave.js",
   "main": "dist/vue-cleave.js",
   "unpkg": "dist/vue-cleave.min.js",
@@ -18,7 +18,8 @@
     "formatting",
     "phone",
     "currency",
-    "date"
+    "date",
+    "masking"
   ],
   "author": "ankurk91",
   "license": "MIT",
