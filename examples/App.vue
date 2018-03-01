@@ -27,8 +27,11 @@
 
           <div class="form-group">
             <label>Enter credit card <code v-text="cardType"></code></label>
-            <cleave type="tel" v-model="form.cardNumber" class="form-control" :options="options.creditCard"></cleave>
+            <cleave name="card" type="tel" v-model="form.cardNumber" class="form-control" :options="options.creditCard"
+                    v-validate="{required:true}"></cleave>
             <small class="form-text text-muted">{{form.cardNumber}}</small>
+            <span v-show="errors.has('card')"
+                  class="text-danger">{{ errors.first('card') }}</span>
           </div>
 
           <div class="form-group">
@@ -132,8 +135,12 @@
     },
     methods: {
       submit() {
-        console.log('Form submit event');
-        console.log(this.form);
+        console.log('Form submit event', this.form);
+        // http://vee-validate.logaretm.com/examples.html#component-example
+        this.$validator.validateAll().then(result => {
+          // eslint-disable-next-line
+          alert(`Form validation result: ${result}`);
+        });
       },
       onCardChange(type) {
         console.log('cardType: ', type);
