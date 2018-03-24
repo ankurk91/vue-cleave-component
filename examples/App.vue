@@ -27,8 +27,15 @@
 
           <div class="form-group">
             <label>Enter credit card <code v-text="cardType"></code></label>
-            <cleave name="card" type="tel" v-model="form.cardNumber" class="form-control" :options="options.creditCard"
-                    v-validate="{required:true}"></cleave>
+            <cleave
+              name="card"
+              type="tel"
+              v-model="form.cardNumber"
+              class="form-control"
+              :options="options.creditCard"
+              v-validate="{required:true}"
+              @blur.native="onBlur"
+              placeholder="Credit card"></cleave>
             <small class="form-text text-muted">{{form.cardNumber}}</small>
             <span v-show="errors.has('card')"
                   class="text-danger">{{ errors.first('card') }}</span>
@@ -36,20 +43,28 @@
 
           <div class="form-group">
             <label>Enter phone number (US)</label>
-            <cleave v-model="form.phoneNumber" class="form-control" :options="options.phoneNumber"></cleave>
+            <cleave
+              v-model="form.phoneNumber"
+              class="form-control"
+              :options="options.phoneNumber"></cleave>
             <small class="form-text text-muted">{{form.phoneNumber}}</small>
           </div>
 
           <div class="form-group">
             <label>Enter date <code>:raw="false"</code></label>
-            <cleave placeholder="dd/mm/yyyy" v-model="form.date" class="form-control" :raw="false"
+            <cleave placeholder="dd/mm/yyyy"
+                    v-model="form.date"
+                    class="form-control"
+                    :raw="false"
                     :options="options.date"></cleave>
             <small class="form-text text-muted">{{form.date}}</small>
           </div>
 
           <div class="form-group">
             <label>Currency</label>
-            <cleave v-model="form.number" class="form-control" :options="options.number"></cleave>
+            <cleave v-model="form.number"
+                    class="form-control"
+                    :options="options.number"></cleave>
             <small class="form-text text-muted">{{form.number}}</small>
           </div>
 
@@ -145,6 +160,10 @@
       onCardChange(type) {
         console.log('cardType: ', type);
         this.cardType = type
+      },
+      onBlur(e) {
+        // Who is using vuex?
+        console.log('onBlur event', e)
       }
     },
   }
