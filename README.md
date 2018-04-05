@@ -113,7 +113,7 @@ The component accepts these props:
 * You should have node-js >=6.10 and yarn >=1.x pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
-* This should open the demo page at ``http://localhost:8000`` in your default web browser
+* This should open the demo page at ``http://localhost:9000`` in your default web browser
 
 ### Testing
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.

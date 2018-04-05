@@ -25,7 +25,7 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
 
-# Tell Travis CI to monitor only these branches
+# Monitor only these branches
 branches:
   only:
   - master

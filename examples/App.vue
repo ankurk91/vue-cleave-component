@@ -23,6 +23,13 @@
     <div class="row">
       <div class="col-md-8">
 
+        <div class="card mb-3">
+          <div class="card-body">
+            <button class="btn btn-secondary btn-sm mr-3" @click.prevent="setNewCardValue">Set new card value</button>
+            <button class="btn btn-secondary btn-sm" @click.prevent="setDateDelimiter">Change date delimiter</button>
+          </div>
+        </div>
+
         <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
 
           <div class="form-group">
@@ -164,6 +171,12 @@
       onBlur(e) {
         // Who is using vuex?
         console.log('onBlur event', e)
+      },
+      setNewCardValue() {
+        this.form.cardNumber = '4111111111111111';
+      },
+      setDateDelimiter() {
+        this.options.date.delimiter = '-';
       }
     },
   }

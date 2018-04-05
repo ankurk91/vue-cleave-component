@@ -20,7 +20,12 @@ module.exports = {
   entry: './src/index.js',
   // Don't include them into library build
   externals: {
-    'vue': 'vue',
+    'vue': {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue'
+    },
     'cleave.js': {
       commonjs: 'cleave.js',
       commonjs2: 'cleave.js',
@@ -29,8 +34,8 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),// where to store build files
-    filename: 'vue-cleave.min.js', // build file name
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'vue-cleave.min.js',
     library: 'VueCleave',
     libraryTarget: 'umd',
     libraryExport: 'default',

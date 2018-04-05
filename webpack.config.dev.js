@@ -21,9 +21,9 @@ module.exports = {
     app: './examples/index.js',
   },
   output: {
-    path: path.resolve(__dirname, 'docs'),// where to store build files
-    publicPath: '',// to be used in index.html
-    filename: "js/[name].[hash].js" // build file name
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: '',
+    filename: "js/[name].[hash].js"
   },
   module: {
     rules: [
@@ -92,7 +92,7 @@ module.exports = {
   // Dev server related configs
   devServer: {
     contentBase: path.resolve(__dirname, 'examples'),
-    port: 8000,
+    port: 9000,
     host: 'localhost',
     open: true,
     inline: true,
