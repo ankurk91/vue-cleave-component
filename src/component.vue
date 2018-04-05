@@ -78,16 +78,26 @@
        * @param newValue
        */
       value(newValue) {
-        this.cleave && this.cleave.setRawValue(newValue);
+        /* istanbul ignore if */
+        if (!this.cleave) return;
+
+        // when v-model is not masked (raw)
+        if (this.raw && newValue === this.cleave.getRawValue()) return;
+        //  when v-model is masked (NOT raw)
+        if (!this.raw && newValue === this.$el.value) return;
+        // Lastly set newValue
+        this.cleave.setRawValue(newValue);
       }
     },
+    /**
+     * Free up memory
+     */
     beforeDestroy() {
-      // Free up memory
-      /* istanbul ignore else */
-      if (this.cleave) {
-        this.cleave.destroy();
-        this.cleave = null
-      }
+      /* istanbul ignore if */
+      if (!this.cleave) return;
+
+      this.cleave.destroy();
+      this.cleave = null
     },
   }
 </script>
