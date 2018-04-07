@@ -1,8 +1,8 @@
 <template>
-  <input :type="type" @input="onInput"/>
+  <input :type="type">
 </template>
 
-<script type="text/javascript">
+<script>
   import Cleave from 'cleave.js'
 
   export default {
@@ -40,21 +40,28 @@
       /* istanbul ignore if */
       if (this.cleave) return;
 
-      this.cleave = new Cleave(this.$el, this.options);
+      this.cleave = new Cleave(this.$el, this.getOptions(this.options));
       this.cleave.setRawValue(this.value)
     },
     methods: {
       /**
+       * Inject our method in config options
+       *
+       * @param options Object
+       */
+      getOptions(options) {
+        return Object.assign({}, options, {
+          onValueChanged: this.onValueChanged
+        });
+      },
+      /**
        * Watch for value changed by cleave and notify parent component
-       * Note: we have to wait for DOM to get updated by cleave.js in order to get final value
        *
        * @param event
        */
-      onInput(event) {
-        this.$nextTick(() => {
-          let value = this.raw ? this.cleave.getRawValue() : event.target.value;
-          this.$emit('input', value);
-        })
+      onValueChanged(event) {
+        let value = this.raw ? event.target.rawValue : event.target.value;
+        this.$emit('input', value);
       },
     },
     watch: {
@@ -67,7 +74,7 @@
         deep: true,
         handler(newOptions) {
           this.cleave.destroy();
-          this.cleave = new Cleave(this.$el, newOptions);
+          this.cleave = new Cleave(this.$el, this.getOptions(newOptions));
           this.cleave.setRawValue(this.value)
         }
       },
