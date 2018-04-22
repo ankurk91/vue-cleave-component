@@ -33,7 +33,9 @@
     data() {
       return {
         // cleave.js instance
-        cleave: null
+        cleave: null,
+        // callback backup
+        onValueChangedFn: null,
       }
     },
     mounted() {
@@ -50,6 +52,9 @@
        * @param options Object
        */
       getOptions(options) {
+        // Preserve original callback
+        this.onValueChangedFn = options.onValueChanged;
+
         return Object.assign({}, options, {
           onValueChanged: this.onValueChanged
         });
@@ -62,6 +67,11 @@
       onValueChanged(event) {
         let value = this.raw ? event.target.rawValue : event.target.value;
         this.$emit('input', value);
+
+        // Call original callback method
+        if (typeof this.onValueChangedFn === 'function') {
+          this.onValueChangedFn.call(this, event)
+        }
       },
     },
     watch: {
@@ -104,7 +114,8 @@
       if (!this.cleave) return;
 
       this.cleave.destroy();
-      this.cleave = null
+      this.cleave = null;
+      this.onValueChangedFn = null;
     },
   }
 </script>

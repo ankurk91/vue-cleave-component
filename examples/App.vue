@@ -128,7 +128,8 @@
           creditCard: {
             creditCard: true,
             delimiter: '-',
-            onCreditCardTypeChanged: this.onCardChange
+            onCreditCardTypeChanged: this.onCardChange,
+            onValueChanged: this.onValueChanged,
           },
           phoneNumber: {
             phone: true,
@@ -167,6 +168,10 @@
       onCardChange(type) {
         console.log('cardType: ', type);
         this.cardType = type
+      },
+      onValueChanged(e) {
+        console.log('onValueChanged', e);
+        console.log(this.form)
       },
       onBlur(e) {
         // Who is using vuex?
