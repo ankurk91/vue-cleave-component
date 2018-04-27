@@ -106,7 +106,7 @@
   </section>
 </template>
 
-<script type="text/javascript">
+<script>
   import Vue from 'vue';
 
   import cleave from '../src/index';
