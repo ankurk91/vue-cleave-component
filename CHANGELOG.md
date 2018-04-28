@@ -1,5 +1,7 @@
 # Changelog
 
+## [2.0.1](https://github.com/ankurk91/vue-cleave-component/compare/2.0.0...2.0.1)
+* Fix: preserve original `onValueChanged` callback
 
 ## [2.0.0](https://github.com/ankurk91/vue-cleave-component/compare/1.0.3...2.0.0)
 * Fix: CTRL+X (cut event) was not updating v-model, [#3](https://github.com/ankurk91/vue-cleave-component/issues/3)

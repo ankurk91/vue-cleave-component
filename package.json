@@ -1,6 +1,6 @@
 {
   "name": "vue-cleave-component",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Vue.js component for cleave.js",
   "main": "dist/vue-cleave.js",
   "unpkg": "dist/vue-cleave.min.js",
