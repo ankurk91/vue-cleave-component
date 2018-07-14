@@ -81,11 +81,11 @@ The component accepts these props:
 * Include required files
 ```html
 <!-- cleave.js -->
-<script src="https://unpkg.com/cleave.js@1/dist/cleave.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cleave.js@1"></script>
 <!-- Vue.js -->
-<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-cleave-component"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@2"></script>
 ```
 * Use the component anywhere in your app like this
 ```html

@@ -3,7 +3,7 @@
   "version": "2.0.1",
   "description": "Vue.js component for cleave.js",
   "main": "dist/vue-cleave.js",
-  "unpkg": "dist/vue-cleave.min.js",
+  "browser": "dist/vue-cleave.min.js",
   "files": [
     "src",
     "dist"
@@ -36,33 +36,33 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "cleave.js": "^1.3.7"
+    "cleave.js": "^1.3.8"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.0",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.7.0",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.1.2",
     "clean-webpack-plugin": "^0.1.18",
     "cross-env": "^5.2.0",
-    "css-loader": "^0.28.9",
+    "css-loader": "^1.0.0",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^3.2.0",
-    "jest": "^23.2.0",
+    "jest": "^23.4.1",
     "jquery": "^3.3.1",
     "popper.js": "^1.12.9",
     "style-loader": "^0.21.0",
     "unminified-webpack-plugin": "^2.0.0",
-    "vee-validate": "^2.1.0-beta.5",
+    "vee-validate": "^2.1.0-beta.6",
     "vue": "^2.5.13",
     "vue-jest": "^2.6.0",
     "vue-loader": "^15.2.4",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^4.14.0",
-    "webpack-command": "^0.4.0",
-    "webpack-serve": "^1.0.4"
+    "webpack": "^4.16.0",
+    "webpack-command": "^0.4.1",
+    "webpack-serve": "^2.0.2"
   },
   "peerDependencies": {
     "vue": "^2.0.0"

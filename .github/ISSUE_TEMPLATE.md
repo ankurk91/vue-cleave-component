@@ -9,7 +9,7 @@
 * cleave.js version : 1.x.x
 * Vue.js version : 2.x.x
 * Browser name and version : Chrome|Firefox|Safari x.x.x
-* This package version : 1.x.x
+* This package version : 2.x.x
 
 **Current behavior**
 <!-- Describe how the bug manifests. -->

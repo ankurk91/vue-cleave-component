@@ -30,12 +30,12 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: /node_modules/,
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: path.resolve(__dirname, 'node_modules'),
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -50,7 +50,6 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              minimize: false
             }
           },
         ],
@@ -101,8 +100,6 @@ module.exports = {
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],
     }),
-    // Required when devServer.hot = true
-    new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
   ],
   // webpack-serve related configs
