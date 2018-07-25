@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.1.0](https://github.com/ankurk91/vue-cleave-component/compare/2.0.1...2.1.0)
+* Add: `blur` event, [#12](https://github.com/ankurk91/vue-cleave-component/issues/12)
+* Chore: webpack v4
+
 ## [2.0.1](https://github.com/ankurk91/vue-cleave-component/compare/2.0.0...2.0.1)
 * Fix: preserve original `onValueChanged` callback
 
