@@ -41,7 +41,6 @@
               class="form-control"
               :options="options.creditCard"
               v-validate="{required:true}"
-              @blur.native="onBlur"
               placeholder="Credit card"></cleave>
             <small class="form-text text-muted">{{form.cardNumber}}</small>
             <span v-show="errors.has('card')"
@@ -172,10 +171,6 @@
       onValueChanged(e) {
         console.log('onValueChanged', e);
         console.log(this.form)
-      },
-      onBlur(e) {
-        // Who is using vuex?
-        console.log('onBlur event', e)
       },
       setNewCardValue() {
         this.form.cardNumber = '4111111111111111';

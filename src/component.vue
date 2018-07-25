@@ -1,5 +1,5 @@
 <template>
-  <input :type="type">
+  <input :type="type" v-bind="$attrs" v-on="inputListeners">
 </template>
 
 <script>
@@ -7,6 +7,7 @@
 
   export default {
     name: 'cleave',
+    inheritAttrs: false,
     props: {
       value: {
         default: null,
@@ -104,6 +105,19 @@
         if (!this.raw && newValue === this.$el.value) return;
         // Lastly set newValue
         this.cleave.setRawValue(newValue);
+      }
+    },
+    computed: {
+      inputListeners() {
+        return Object.assign({},
+          // Add all the listeners from the parent
+          this.$listeners,
+          {
+            blur: (event) => {
+              this.$emit('blur', this.value)
+            }
+          }
+        )
       }
     },
     /**
