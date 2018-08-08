@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" v-bind="$attrs" v-on="inputListeners">
+  <input :type="type" @blur="onBlur">
 </template>
 
 <script>
@@ -7,7 +7,6 @@
 
   export default {
     name: 'cleave',
-    inheritAttrs: false,
     props: {
       value: {
         default: null,
@@ -26,6 +25,7 @@
         type: Boolean,
         default: true
       },
+      // Input type, for example `tel`
       type: {
         type: String,
         default: 'text'
@@ -74,6 +74,9 @@
           this.onValueChangedFn.call(this, event)
         }
       },
+      onBlur(event) {
+        this.$emit('blur', this.value)
+      }
     },
     watch: {
       /**
@@ -105,19 +108,6 @@
         if (!this.raw && newValue === this.$el.value) return;
         // Lastly set newValue
         this.cleave.setRawValue(newValue);
-      }
-    },
-    computed: {
-      inputListeners() {
-        return Object.assign({},
-          // Add all the listeners from the parent
-          this.$listeners,
-          {
-            blur: (event) => {
-              this.$emit('blur', this.value)
-            }
-          }
-        )
       }
     },
     /**

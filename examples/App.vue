@@ -120,7 +120,7 @@
           cardNumber: null,
           phoneNumber: null,
           date: null,
-          number: null,
+          number: 1234567,
         },
         // https://github.com/nosir/cleave.js/blob/master/doc/options.md
         options: {
