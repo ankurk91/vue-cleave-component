@@ -1,7 +1,11 @@
 # Changelog
 
+## [2.1.1](https://github.com/ankurk91/vue-cleave-component/compare/2.1.0...2.1.1)
+* Fix: `blur` event implementation, [#13](https://github.com/ankurk91/vue-cleave-component/issues/13)
+
 ## [2.1.0](https://github.com/ankurk91/vue-cleave-component/compare/2.0.1...2.1.0)
 * Add: `blur` event, [#12](https://github.com/ankurk91/vue-cleave-component/issues/12)
+    - If you were using `@blur.native` previously then replace it with `@blur`
 * Chore: webpack v4
 
 ## [2.0.1](https://github.com/ankurk91/vue-cleave-component/compare/2.0.0...2.0.1)
