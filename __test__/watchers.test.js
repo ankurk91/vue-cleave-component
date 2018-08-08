@@ -1,4 +1,4 @@
-import {shallowMount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 
 import Component from '../src/component.vue';
 
@@ -17,7 +17,7 @@ describe('Cleave watchers', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallowMount(Component, {
+    wrapper = mount(Component, {
       propsData: props
     });
   });
@@ -32,9 +32,17 @@ describe('Cleave watchers', () => {
   });
 
   test('emits input event', () => {
-    wrapper.vm.$emit('input', 123456);
+    wrapper.setProps({value: '2019-10-04'});
+    wrapper.trigger('input');
 
     expect(wrapper.emitted('input')).toBeTruthy();
+  });
+
+  test('emits blur event', () => {
+    wrapper.setProps({value: '2019-10-04'});
+    wrapper.trigger('blur');
+
+    expect(wrapper.emitted().blur).toBeTruthy()
   });
 
 
