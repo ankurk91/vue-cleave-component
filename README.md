@@ -15,7 +15,7 @@ Vue.js v2.x component for [Cleave.js](http://nosir.github.io/cleave.js/)
 ## Features
 * Reactive ``v-model`` value
     - You can change input value programmatically 
-* Reactive [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) 
+* Reactive [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md), read [caveats](#caveats) below
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
@@ -122,6 +122,14 @@ The component accepts these props:
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Caveats
+* :warning: Don't pass config option as inline literal object to `:options` prop.
+```html
+<!-- This will cause an infinite loop -->
+<cleave v-model="card" :options="{creditCard:true}"></cleave>
+```
+* Vue.js can not detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License
