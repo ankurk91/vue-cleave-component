@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" @blur="onBlur">
+  <input :type="type" :placeholder="placeholder" @blur="onBlur">
 </template>
 
 <script>
@@ -29,6 +29,10 @@
       type: {
         type: String,
         default: 'text'
+      },
+      placeholder: {
+        type: String,
+        default: '',
       }
     },
     data() {
