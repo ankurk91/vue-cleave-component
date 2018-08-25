@@ -20,6 +20,7 @@ Vue.js v2.x component for [Cleave.js](http://nosir.github.io/cleave.js/)
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
+* Works with validation libraries
 * Option to disable `raw` mode to get masked value 
 
 ## Installation
@@ -75,7 +76,6 @@ The component accepts these props:
 | v-model / value  | String / Number / null | `null`      | Set or Get input value (required) |
 | options          | Object                 | `{}`        | Cleave.js [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) |
 | raw              | Boolean                | `true`      | When set to `false`; emits formatted value with format pattern and delimiter |
-| type             | String                 | `text`      | Set input type; for eg: `tel` |
 
 ## Install in non-module environments (without webpack)
 * Include required files

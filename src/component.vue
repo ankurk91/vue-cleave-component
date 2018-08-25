@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" @blur="onBlur">
+  <input type="text" @blur="onBlur">
 </template>
 
 <script>
@@ -25,11 +25,6 @@
         type: Boolean,
         default: true
       },
-      // Input type, for example `tel`
-      type: {
-        type: String,
-        default: 'text'
-      }
     },
     data() {
       return {
