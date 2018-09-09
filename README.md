@@ -33,7 +33,7 @@ yarn add vue-cleave-component
 ```
 
 ## Usage
-```html
+```vue
 <template>
   <div>
     <cleave v-model="cardNumber" :options="options" class="form-control" name="card"></cleave>
@@ -88,7 +88,7 @@ The component accepts these props:
 <script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@2"></script>
 ```
 * Use the component anywhere in your app like this
-```html
+```vue
 <main id="app">  
     <cleave v-model="card" :options="options"></cleave> 
 </main>
@@ -125,7 +125,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 ## Caveats
 * :warning: Don't pass config option as inline literal object to `:options` prop.
-```html
+```vue
 <!-- This will cause an infinite loop -->
 <cleave v-model="card" :options="{creditCard:true}"></cleave>
 ```
