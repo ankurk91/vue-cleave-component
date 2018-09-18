@@ -8,7 +8,7 @@
 [![build-status](https://travis-ci.org/ankurk91/vue-cleave-component.svg?branch=master)](https://travis-ci.org/ankurk91/vue-cleave-component)
 [![codecov](https://codecov.io/gh/ankurk91/vue-cleave-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-cleave-component)
 
-Vue.js v2.x component for [Cleave.js](http://nosir.github.io/cleave.js/) 
+Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/) 
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/aza302c7/)
 

@@ -30,7 +30,7 @@ describe('Cleave global component', () => {
     let input = wrapper.find(Component);
     expect(input.is('input')).toBe(true);
     expect(input.classes()).toContain('form-control');
-    expect(input.attributes().name).toBe('card');
+    expect(input.attributes('name')).toBe('card');
 
   });
 

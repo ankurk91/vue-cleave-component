@@ -26,17 +26,17 @@ describe('Cleave props', () => {
   });
 
   test('accepts options via prop', () => {
-    expect(wrapper.props().options).toEqual(props.options);
+    expect(wrapper.props('options')).toEqual(props.options);
     expect(wrapper.vm.cleave.properties).toHaveProperty('delimiter', props.options.delimiter);
   });
 
   test('accepts value via prop', () => {
-    expect(wrapper.props().value).toBe(props.value);
+    expect(wrapper.props('value')).toBe(props.value);
   });
 
   test('accepts raw as prop', () => {
     wrapper.setProps({raw: false});
-    expect(wrapper.vm.$props.raw).toBe(false);
+    expect(wrapper.props('raw')).toBe(false);
   });
 
   test('validates v-model', () => {
