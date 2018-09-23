@@ -62,7 +62,10 @@
        */
       onValueChanged(event) {
         let value = this.raw ? event.target.rawValue : event.target.value;
-        this.$emit('input', value);
+
+        if (this.value !== value) {
+          this.$emit('input', value);
+        }
 
         // Call original callback method
         if (typeof this.onValueChangedFn === 'function') {
