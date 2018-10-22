@@ -95,10 +95,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       Vue: ['vue/dist/vue.esm.js', 'default'],
       'window.Vue': 'vue',
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
     }),
     new VueLoaderPlugin(),
   ],

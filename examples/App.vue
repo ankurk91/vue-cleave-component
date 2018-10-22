@@ -1,23 +1,17 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
-      <span class="navbar-brand mb-0">Vue-Cleave Demo</span>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mobile-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ankurk91/vue-cleave-component"
-               target="_blank"> GitHub</a></li>
-        </ul>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm mb-3">
+      <span class="navbar-brand mb-0">Vue Cleave.js demo</span>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ankurk91/vue-cleave-component"
+             target="_blank"> GitHub</a></li>
+      </ul>
     </nav>
 
-    <main class="container my-3">
+    <main class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 mb-3">
 
           <div class="card mb-3">
             <div class="card-body">
@@ -79,7 +73,7 @@
           </form>
         </div>
 
-        <aside class="col-md-4">
+        <aside class="col-md-4 mb-3">
           <div class="card">
             <div class="card-header">
               Links
@@ -96,8 +90,8 @@
       </div>
 
     </main>
-    <footer class="text-center text-muted small mb-3 mt-3">
-      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener¬">@ankurk91</a>
+    <footer class="text-center text-muted small mb-3">
+      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener">@ankurk91</a>
     </footer>
   </div>
 </template>
@@ -105,8 +99,8 @@
 <script>
   import Vue from 'vue';
 
-  import Cleave from '../src/index';
-  import 'cleave.js/dist/addons/cleave-phone.us';
+  import Cleave from '../src/index.js';
+  import 'cleave.js/dist/addons/cleave-phone.us.js';
 
   export default {
     name: 'app',

@@ -11,9 +11,6 @@ Vue.use(VeeValidate, {
   events: 'input|blur',
 });
 
-// jQuery is required by bootstrap to work
-window.$ = window.jQuery = require('jquery');
-require('bootstrap');
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import App from './App.vue';
