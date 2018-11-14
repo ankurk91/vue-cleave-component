@@ -1,4 +1,4 @@
-import component from './component.vue';
+import component from './component.js';
 
 const plugin = (Vue, params) => {
   let name = 'cleave';
