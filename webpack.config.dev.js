@@ -17,9 +17,7 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue'],
   },
-  entry: {
-    app: './examples/index.js',
-  },
+  entry: './examples/index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
