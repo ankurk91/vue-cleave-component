@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.1.2](https://github.com/ankurk91/vue-cleave-component/compare/2.1.1...2.1.2)
+* Change: 
+    - removed `type` prop, however this should work as before
+    - convert template to render function to reduce build size
+
 ## [2.1.1](https://github.com/ankurk91/vue-cleave-component/compare/2.1.0...2.1.1)
 * Fix: `blur` event implementation, [#13](https://github.com/ankurk91/vue-cleave-component/issues/13)
 
