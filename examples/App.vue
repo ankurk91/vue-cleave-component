@@ -31,6 +31,7 @@
                 class="form-control"
                 :options="options.creditCard"
                 v-validate="{required:true}"
+                :class="{'is-invalid': errors.has('card')}"
                 placeholder="Credit card"></cleave>
               <small class="form-text text-muted">{{form.cardNumber}}</small>
               <span v-show="errors.has('card')"
