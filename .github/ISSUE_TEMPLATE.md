@@ -7,7 +7,7 @@
 
 **Tell about your platform**
 * cleave.js version : 1.x.x
-* Vue.js version : 2.x.x
+* Vue.js version : 2.6.x
 * Browser name and version : Chrome|Firefox|Safari x.x.x
 * This package version : 2.x.x
 
