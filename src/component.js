@@ -9,7 +9,8 @@ export default {
       },
       on: {
         blur: this.onBlur
-      }
+      },
+      ref: 'input'
     })
   },
   props: {
@@ -76,6 +77,9 @@ export default {
     },
     onBlur(event) {
       this.$emit('blur', this.value)
+    },
+    focus() {
+      this.$refs.input.focus();
     }
   },
   watch: {
