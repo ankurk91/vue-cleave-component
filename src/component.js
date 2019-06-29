@@ -5,7 +5,8 @@ export default {
   render(el) {
     return el('input', {
       attrs: {
-        type: 'text'
+        type: 'text',
+        value: this.value// Cleave.js will set this as initial value
       },
       on: {
         blur: this.onBlur
@@ -44,7 +45,6 @@ export default {
     if (this.cleave) return;
 
     this.cleave = new Cleave(this.$el, this.getOptions(this.options));
-    this.cleave.setRawValue(this.value)
   },
   methods: {
     /**
