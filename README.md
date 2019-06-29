@@ -109,7 +109,7 @@ The component accepts these props:
 
 ## Run examples on your localhost
 * Clone this repo
-* You should have node-js `>=6.10` and yarn `>=1.x` pre-installed
+* You should have node-js `>=8.9` and yarn `>=1.x` pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
 * This should open the demo page at ``http://localhost:9000`` in your default web browser
