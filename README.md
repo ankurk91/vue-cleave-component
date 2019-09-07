@@ -1,10 +1,10 @@
 # Vue Cleave Component
 
-[![downloads](https://img.shields.io/npm/dt/vue-cleave-component.svg)](http://npm-stats.com/~packages/vue-cleave-component)
-[![npm-version](https://img.shields.io/npm/v/vue-cleave-component.svg)](https://www.npmjs.com/package/vue-cleave-component)
-[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-cleave-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-cleave-component/)
-[![license](https://img.shields.io/github/license/ankurk91/vue-cleave-component.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-cleave-component)
-[![build-status](https://travis-ci.org/ankurk91/vue-cleave-component.svg?branch=master)](https://travis-ci.org/ankurk91/vue-cleave-component)
+[![downloads](https://badgen.net/npm/dt/vue-cleave-component)](http://npm-stats.com/~packages/vue-cleave-component)
+[![npm-version](https://badgen.net/npm/v/vue-cleave-component)](https://www.npmjs.com/package/vue-cleave-component)
+[![github-tag](https://badgen.net/github/tag/ankurk91/vue-cleave-component)](https://github.com/ankurk91/vue-cleave-component/)
+[![license](https://badgen.net/github/license/ankurk91/vue-cleave-component)](https://yarnpkg.com/en/package/vue-cleave-component)
+[![build-status](https://travis-ci.com/ankurk91/vue-cleave-component.svg?branch=master)](https://travis-ci.com/ankurk91/vue-cleave-component)
 [![codecov](https://codecov.io/gh/ankurk91/vue-cleave-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-cleave-component)
 
 Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/) 
