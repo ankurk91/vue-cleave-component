@@ -24,11 +24,11 @@ Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/)
 
 ## Installation
 ```bash
-# npm
-npm install vue-cleave-component --save
-
 # Yarn
 yarn add vue-cleave-component
+
+# npm
+npm install vue-cleave-component --save
 ```
 
 ## Usage
