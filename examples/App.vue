@@ -30,12 +30,8 @@
                 v-model="form.cardNumber"
                 class="form-control"
                 :options="options.creditCard"
-                v-validate="{required:true}"
-                :class="{'is-invalid': errors.has('card')}"
                 placeholder="Credit card"></cleave>
               <small class="form-text text-muted">{{form.cardNumber}}</small>
-              <span v-show="errors.has('card')"
-                    class="text-danger">{{ errors.first('card') }}</span>
             </div>
 
             <div class="form-group">
@@ -150,10 +146,6 @@
     methods: {
       submit() {
         console.log('Form submit event', this.form);
-        // http://vee-validate.logaretm.com/examples.html#component-example
-        this.$validator.validateAll().then(result => {
-          alert(`Form validation result: ${result}`);
-        });
       },
       onCardChange(type) {
         console.log('cardType: ', type);
