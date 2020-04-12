@@ -4,7 +4,7 @@
 [![npm-version](https://badgen.net/npm/v/vue-cleave-component)](https://www.npmjs.com/package/vue-cleave-component)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-cleave-component)](https://github.com/ankurk91/vue-cleave-component/)
 [![license](https://badgen.net/github/license/ankurk91/vue-cleave-component)](https://yarnpkg.com/en/package/vue-cleave-component)
-[![build-status](https://travis-ci.com/ankurk91/vue-cleave-component.svg?branch=master)](https://travis-ci.com/ankurk91/vue-cleave-component)
+![build](https://github.com/ankurk91/vue-cleave-component/workflows/build/badge.svg)
 [![codecov](https://codecov.io/gh/ankurk91/vue-cleave-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-cleave-component)
 
 Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/) 
@@ -24,7 +24,7 @@ Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/)
 
 ## Installation
 ```bash
-# Yarn
+# yarn
 yarn add vue-cleave-component
 
 # npm
@@ -109,7 +109,7 @@ The component accepts these props:
 
 ## Run examples on your localhost
 * Clone this repo
-* You should have node-js `>=8.9` and yarn `>=1.x` pre-installed
+* You should have node-js `>=10.13` and yarn `>=1.x` pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
 * This should open the demo page at ``http://localhost:9000`` in your default web browser
