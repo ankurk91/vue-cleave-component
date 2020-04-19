@@ -37,18 +37,22 @@ describe('Cleave raw prop', () => {
     wrapper = null;
   });
 
-  test('emits raw by default', () => {
+  test('emits raw by default', async () => {
     wrapper.setData({
       model: '10102010'
     });
+    await wrapper.vm.$nextTick();
+
     expect(wrapper.vm.model).toBe('10102010')
   });
 
-  test('does not emits raw when set to false', () => {
+  test('does not emits raw when set to false', async () => {
     wrapper.setData({
       raw: false,
       model: '11/11/2011'
     });
+    await wrapper.vm.$nextTick();
+
     expect(wrapper.vm.model).toBe('11/11/2011')
   });
 

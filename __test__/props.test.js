@@ -34,8 +34,10 @@ describe('Cleave props', () => {
     expect(wrapper.props('value')).toBe(props.value);
   });
 
-  test('accepts raw as prop', () => {
+  test('accepts raw as prop', async () => {
     wrapper.setProps({raw: false});
+    await wrapper.vm.$nextTick();
+
     expect(wrapper.props('raw')).toBe(false);
   });
 

@@ -41,11 +41,13 @@ describe('Cleave configs', () => {
     jest.resetAllMocks();
   });
 
-  test('calls original onValueChanged method on v-model change', () => {
+  test('calls original onValueChanged method on v-model change', async () => {
     wrapper.setData({
       raw: false,
       model: '11/11/2011'
     });
+    await wrapper.vm.$nextTick();
+
     expect(onValueChangedStub).toHaveBeenCalled();
   });
 
