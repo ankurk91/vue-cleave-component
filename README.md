@@ -4,7 +4,7 @@
 [![npm-version](https://badgen.net/npm/v/vue-cleave-component)](https://www.npmjs.com/package/vue-cleave-component)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-cleave-component)](https://github.com/ankurk91/vue-cleave-component/)
 [![license](https://badgen.net/github/license/ankurk91/vue-cleave-component)](https://yarnpkg.com/en/package/vue-cleave-component)
-![build](https://github.com/ankurk91/vue-cleave-component/workflows/build/badge.svg)
+[![build](https://github.com/ankurk91/vue-cleave-component/workflows/build/badge.svg)](https://github.com/ankurk91/vue-cleave-component/actions)
 [![codecov](https://codecov.io/gh/ankurk91/vue-cleave-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-cleave-component)
 
 Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/) 
@@ -123,12 +123,12 @@ The component accepts these props:
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Caveats
-* :warning: Don't pass config option as inline literal object to `:options` prop.
+* :warning: Do not supply config option as inline literal object to `:options` prop.
 ```html
 <!-- This will cause an infinite loop -->
 <cleave v-model="card" :options="{creditCard:true}"></cleave>
 ```
-* Vue.js can not detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
+* Vue.js cannot detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License
