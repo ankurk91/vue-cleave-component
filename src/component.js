@@ -9,6 +9,7 @@ export default {
         value: this.value// Cleave.js will set this as initial value
       },
       on: {
+        focus: this.onFocus,
         blur: this.onBlur
       }
     })
@@ -73,6 +74,9 @@ export default {
       if (typeof this.onValueChangedFn === 'function') {
         this.onValueChangedFn.call(this, event)
       }
+    },
+    onFocus(event) {
+      this.$emit('focus', this.value)
     },
     onBlur(event) {
       this.$emit('blur', this.value)
