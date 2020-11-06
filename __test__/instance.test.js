@@ -9,7 +9,7 @@ describe('Cleave component instance', () => {
   beforeEach(() => {
     wrapper = mount(Component, {
       propsData: {
-        value: null,
+        modelValue: null,
         options: {
           creditCard: true
         }
@@ -17,18 +17,13 @@ describe('Cleave component instance', () => {
     });
   });
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBe(true)
-  });
-
   test('renders input field', () => {
-    expect(wrapper.is('input')).toBe(true);
+    expect(wrapper.find('input').exists()).toBe(true);
   });
 
 
   test('clean up on destroy', () => {
-    wrapper.destroy();
-    expect(wrapper.isEmpty()).toBe(true);
+    wrapper.unmount();
     expect(wrapper.vm.$data.cleave).toBe(null);
   });
 

@@ -94,8 +94,6 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-
   import Cleave from '../src/index.js';
   import 'cleave.js/dist/addons/cleave-phone.us.js';
 

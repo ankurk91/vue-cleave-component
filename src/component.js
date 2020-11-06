@@ -1,20 +1,18 @@
 import Cleave from 'cleave.js'
+import {h} from 'vue';
 
 export default {
   name: 'cleave',
-  render(el) {
-    return el('input', {
-      attrs: {
-        type: 'text',
-        value: this.value// Cleave.js will set this as initial value
-      },
-      on: {
-        blur: this.onBlur
-      }
+  render() {
+    return h('input', {
+      type: 'text',
+      value: this.modelValue,// Cleave.js will set this as initial value
+      onBlur: this.onBlur,
+      ref: 'root'
     })
   },
   props: {
-    value: {
+    modelValue: {
       default: null,
       required: true,
       validator(value) {
@@ -26,7 +24,7 @@ export default {
       type: Object,
       default: () => ({})
     },
-    // Set this prop to false to emit masked value
+    // Set this prop as `false` to emit masked value
     raw: {
       type: Boolean,
       default: true
@@ -44,7 +42,7 @@ export default {
     /* istanbul ignore if */
     if (this.cleave) return;
 
-    this.cleave = new Cleave(this.$el, this.getOptions(this.options));
+    this.cleave = new Cleave(this.$refs.root, this.getOptions(this.options));
   },
   methods: {
     /**
@@ -67,7 +65,7 @@ export default {
      */
     onValueChanged(event) {
       let value = this.raw ? event.target.rawValue : event.target.value;
-      this.$emit('input', value);
+      this.$emit('update:modelValue', value);
 
       // Call original callback method
       if (typeof this.onValueChangedFn === 'function') {
@@ -75,7 +73,7 @@ export default {
       }
     },
     onBlur(event) {
-      this.$emit('blur', this.value)
+      this.$emit('blur', this.modelValue)
     }
   },
   watch: {
@@ -88,8 +86,8 @@ export default {
       deep: true,
       handler(newOptions) {
         this.cleave.destroy();
-        this.cleave = new Cleave(this.$el, this.getOptions(newOptions));
-        this.cleave.setRawValue(this.value)
+        this.cleave = new Cleave(this.$refs.root, this.getOptions(newOptions));
+        this.cleave.setRawValue(this.modelValue)
       }
     },
 
@@ -98,14 +96,14 @@ export default {
      *
      * @param newValue
      */
-    value(newValue) {
+    modelValue(newValue) {
       /* istanbul ignore if */
       if (!this.cleave) return;
 
       // when v-model is not masked (raw)
       if (this.raw && newValue === this.cleave.getRawValue()) return;
       //  when v-model is masked (NOT raw)
-      if (!this.raw && newValue === this.$el.value) return;
+      if (!this.raw && newValue === this.$refs.root.value) return;
       // Lastly set newValue
       this.cleave.setRawValue(newValue);
     }
@@ -113,7 +111,7 @@ export default {
   /**
    * Free up memory
    */
-  beforeDestroy() {
+  beforeUnmount() {
     /* istanbul ignore if */
     if (!this.cleave) return;
 

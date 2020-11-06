@@ -6,7 +6,7 @@ describe('Cleave props', () => {
 
   // Store for future usage
   const props = {
-    value: '4' + '1'.repeat(15),
+    modelValue: '4' + '1'.repeat(15),
     options: {
       cardNumber: true,
       delimiter: '-',
@@ -22,16 +22,12 @@ describe('Cleave props', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
-  test('accepts options via prop', () => {
+  test('accept options via prop', () => {
     expect(wrapper.props('options')).toEqual(props.options);
     expect(wrapper.vm.cleave.properties).toHaveProperty('delimiter', props.options.delimiter);
-  });
-
-  test('accepts value via prop', () => {
-    expect(wrapper.props('value')).toBe(props.value);
   });
 
   test('accepts raw as prop', async () => {
@@ -42,7 +38,7 @@ describe('Cleave props', () => {
   });
 
   test('validates v-model', () => {
-    let vModel = wrapper.vm.$options.props.value;
+    let vModel = wrapper.vm.$options.props.modelValue;
 
     expect(vModel.validator(false)).toBe(false);
     expect(vModel.validator(undefined)).toBe(false);

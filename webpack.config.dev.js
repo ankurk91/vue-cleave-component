@@ -13,7 +13,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      'vue$': 'vue/dist/vue.runtime.esm.js'
+      vue: "@vue/runtime-dom"
     },
     extensions: ['.js', '.json', '.vue'],
   },
@@ -87,10 +87,6 @@ module.exports = {
         minifyURLs: false,
       }
     }),
-    new webpack.ProvidePlugin({
-      Vue: ['vue/dist/vue.esm.js', 'default'],
-      'window.Vue': 'vue',
-    }),
     new VueLoaderPlugin(),
   ],
   devServer: {
@@ -105,7 +101,7 @@ module.exports = {
     },
     stats: 'errors-only',
   },
-  devtool: '#cheap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   performance: {
     hints: false,
   },

@@ -1,16 +1,16 @@
-import {mount, createLocalVue} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 
 import Component from '../src/component.js';
 
 describe('Cleave configs', () => {
 
-  let localVue = createLocalVue();
   let onValueChangedStub = jest.fn();
 
   let app = {
-    template: `<div id="app">
-                  <cleave :options="options" :raw="raw" v-model="model"></cleave>
-                 </div>`,
+    template: `
+      <div id="app">
+      <cleave :options="options" :raw="raw" v-model="model"></cleave>
+      </div>`,
     data() {
       return {
         model: '12122012',
@@ -28,15 +28,12 @@ describe('Cleave configs', () => {
 
   let wrapper = null;
 
-
   beforeEach(() => {
-    wrapper = mount(app, {
-      localVue
-    })
+    wrapper = mount(app, {})
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
     wrapper = null;
     jest.resetAllMocks();
   });

@@ -1,10 +1,9 @@
-import {mount, createLocalVue} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 
 import Component from '../src/component.js';
 
 describe('Cleave raw prop', () => {
 
-  let localVue = createLocalVue();
   let app = {
     template: `<div id="app">
                   <cleave :options="options" :raw="raw" v-model="model"></cleave>
@@ -27,18 +26,16 @@ describe('Cleave raw prop', () => {
 
 
   beforeEach(() => {
-    wrapper = mount(app, {
-      localVue
-    })
+    wrapper = mount(app, {})
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
     wrapper = null;
   });
 
   test('emits raw by default', async () => {
-    wrapper.setData({
+    await wrapper.setData({
       model: '10102010'
     });
     await wrapper.vm.$nextTick();
@@ -46,7 +43,7 @@ describe('Cleave raw prop', () => {
     expect(wrapper.vm.model).toBe('10102010')
   });
 
-  test('does not emits raw when set to false', async () => {
+  test('does not emit raw when set to false', async () => {
     wrapper.setData({
       raw: false,
       model: '11/11/2011'

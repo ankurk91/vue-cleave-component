@@ -1,12 +1,7 @@
 import Component from '../src/index';
-import {mount, createLocalVue} from '@vue/test-utils';
+import {mount} from '@vue/test-utils';
 
 describe('Cleave global component', () => {
-
-  // Make a copy of local vue
-  let localVue = createLocalVue();
-  // Define a global component
-  localVue.use(Component, 'cleave-input');
 
   test('works as plugin', () => {
 
@@ -22,13 +17,17 @@ describe('Cleave global component', () => {
     };
 
     let wrapper = mount(app, {
-      localVue
+      global: {
+        components: {
+          cleaveInput: Component
+        }
+      }
     });
 
-    expect(wrapper.contains(Component)).toBe(true);
+    expect(wrapper.findComponent(Component)).toBeTruthy();
 
-    let input = wrapper.find(Component);
-    expect(input.is('input')).toBe(true);
+    let input = wrapper.getComponent(Component);
+    expect(input.find('input')).toBeTruthy();
     expect(input.classes()).toContain('form-control');
     expect(input.attributes('name')).toBe('card');
 

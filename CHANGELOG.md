@@ -1,5 +1,9 @@
 # Changelog
 
+## [3.0.0](https://github.com/ankurk91/vue-cleave-component/compare/2.1.2...3.0.0)
+* Drop support for Vue v2.x and add support for Vue v3.x
+* Drop IE 11 support
+
 ## [2.1.3](https://github.com/ankurk91/vue-cleave-component/compare/2.1.2...2.1.3)
 * Fix: `input` event was being emitted on load, [#25](https://github.com/ankurk91/vue-cleave-component/issues/25)
     

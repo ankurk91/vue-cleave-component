@@ -11,13 +11,19 @@ Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/)
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/aza302c7/)
 
+### Version matrix
+
+| Vue.js version | Package version | Branch          |
+| :---           | :---:           | ---:           | 
+| 2.x            | 2.x             | [2.x](https://github.com/ankurk91/vue-cleave-component/tree/v2.x) |
+| 3.x            | 3.x             | master          |
+
 ## Features
-* Reactive ``v-model`` value
+* Reactive `v-model` value
     - You can change input value programmatically 
-* Reactive [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md), read [caveats](#caveats) below
+* Reactive [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md)
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
-    - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Works with validation libraries
 * Option to disable `raw` mode to get masked value 
@@ -35,7 +41,10 @@ npm install vue-cleave-component --save
 ```html
 <template>
   <div>
-    <cleave v-model="cardNumber" :options="options" class="form-control" name="card"></cleave>
+    <cleave v-model="cardNumber" 
+            :options="options" 
+            class="form-control" 
+            name="card"/>
   </div>
 </template>
 
@@ -61,9 +70,10 @@ npm install vue-cleave-component --save
 
 ### As plugin
 ```js
-  import Vue from 'vue';
+  import {createApp} from 'vue';
   import Cleave from 'vue-cleave-component';
-  Vue.use(Cleave);
+  const app = createApp().mount('#app')  
+  app.use(Cleave);
 ```
 This will register a global component `<cleave>` 
 
@@ -72,7 +82,7 @@ The component accepts these props:
 
 | Attribute        | Type                   | Default     | Description      |
 | :---             | :---:                  | :---:       | :---             |
-| v-model / value  | String / Number / null | `null`      | Set or Get input value (required) |
+| v-model          | String / Number / `null` | `null`      | Set or Get input value (required) |
 | options          | Object                 | `{}`        | Cleave.js [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) |
 | raw              | Boolean                | `true`      | When set to `false`; emits formatted value with format pattern and delimiter |
 
@@ -82,28 +92,12 @@ The component accepts these props:
 <!-- cleave.js -->
 <script src="https://cdn.jsdelivr.net/npm/cleave.js@1"></script>
 <!-- Vue.js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@2"></script>
-```
-* Use the component anywhere in your app like this
-```html
-<main id="app">  
-    <cleave v-model="card" :options="options"></cleave> 
-</main>
+<script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@3"></script>
 <script>
-  // Initialize global component
-  Vue.use(VueCleave);
-  
-  new Vue({
-    el: '#app',
-    data: {
-      card: null,
-      options: {
-        creditCard: true,
-      }
-    },    
-  });
+ // Init as global component
+ yourApp.use(VueCleave);
 </script>
 ```
 
@@ -115,20 +109,12 @@ The component accepts these props:
 * This should open the demo page at ``http://localhost:9000`` in your default web browser
 
 ### Testing
-* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
+* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder
 * Execute tests with this command `yarn test`
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Caveats
-* :warning: Do not supply config option as inline literal object to `:options` prop.
-```html
-<!-- This will cause an infinite loop -->
-<cleave v-model="card" :options="{creditCard:true}"></cleave>
-```
-* Vue.js cannot detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License
