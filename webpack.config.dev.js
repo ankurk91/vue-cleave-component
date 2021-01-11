@@ -13,7 +13,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      vue: "@vue/runtime-dom"
+      vue: '@vue/runtime-dom'
     },
     extensions: ['.js', '.json', '.vue'],
   },
@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
-    filename: "js/[name].[hash].js"
+    filename: "js/[name].[chunkhash].js"
   },
   module: {
     rules: [
@@ -43,9 +43,6 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            options: {
-              sourceMap: true,
-            }
           },
         ],
       },
@@ -53,25 +50,37 @@ module.exports = {
         test: /\.jpe?g$|\.gif$|\.png$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name]-[hash].[ext]',
+          name: '[path][name]-[contenthash].[ext]',
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         loader: 'file-loader',
         options: {
-          name: '[path][name]-[hash].[ext]',
+          name: '[path][name]-[contenthash].[ext]',
         }
       }
-
     ]
   },
   // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
+  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
-    runtimeChunk: false,
+    moduleIds: 'deterministic',
+    runtimeChunk: {
+      name: 'manifest'
+    },
     splitChunks: {
-      chunks: 'all',
-    }
+      automaticNameDelimiter: '-',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/].*\.js$/,
+          name: 'vendor',
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    },
+    minimizer: [],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -90,18 +99,18 @@ module.exports = {
     new VueLoaderPlugin(),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'docs'),
+    firewall: false,
     host: 'localhost',
     port: 9000,
     open: true,
-    hot: true,
+    liveReload: false,
     overlay: {
       warnings: false,
       errors: true
     },
-    stats: 'errors-only',
+    static: path.resolve(process.cwd(), 'docs'),
   },
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'eval-cheap-source-map',
   performance: {
     hints: false,
   },
