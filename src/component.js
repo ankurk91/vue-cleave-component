@@ -6,7 +6,7 @@ export default {
   render() {
     return h('input', {
       type: 'text',
-      value: this.modelValue,// Cleave.js will set this as initial value
+      value: this.cleave ? this.cleave.properties.result : this.modelValue,// Cleave.js will set this as initial value
       onBlur: this.onBlur,
       ref: 'root'
     })
