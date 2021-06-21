@@ -41,6 +41,7 @@ module.exports = {
     library: 'VueCleave',
     libraryTarget: 'umd',
     libraryExport: 'default',
+    globalObject: 'this',
     umdNamedDefine: true,
   },
   module: {

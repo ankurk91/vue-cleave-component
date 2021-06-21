@@ -75,7 +75,7 @@ npm install vue-cleave-component --save
 ### As plugin
 
 ```js
-  import {createApp} from 'vue';
+import {createApp} from 'vue';
 import Cleave from 'vue-cleave-component';
 // your app initilization logic goes here
 const app = createApp({}).mount('#app')
@@ -90,7 +90,7 @@ The component accepts these props:
 
 | Attribute        | Type                   | Default     | Description      |
 | :---             | :---:                  | :---:       | :---             |
-| v-model          | String / Number / `null` | `null`      | Set or Get input value (required) |
+| v-model          | String / Number / `null` | `null`    | Set or Get input value (required) |
 | options          | Object                 | `{}`        | Cleave.js [options](https://github.com/nosir/cleave.js/blob/master/doc/options.md) |
 | raw              | Boolean                | `true`      | When set to `false`; emits formatted value with format pattern and delimiter |
 
@@ -106,7 +106,7 @@ The component accepts these props:
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@3"></script>
 <script>
-    // Init as global component
+    const app = Vue.createApp({}).mount('#app')
     app.use(VueCleave);
 </script>
 ```
@@ -129,6 +129,14 @@ The component accepts these props:
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Alternatives
+
+If you feel this component heavy, then you can consider these packages.
+
+* [v-mask](https://github.com/probil/v-mask)
+* [vue-input-facade](https://github.com/RonaldJerez/vue-input-facade)
+* [maska](https://github.com/beholdr/maska)
 
 ## License
 
