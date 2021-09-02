@@ -11,4 +11,3 @@ const plugin = (Vue, params) => {
 component.install = plugin;
 
 export default component;
-export {component, plugin};
