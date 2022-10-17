@@ -1,11 +1,11 @@
 import component from './component.js';
 
-const plugin = (Vue, params) => {
+const plugin = (app, params) => {
   let name = 'cleave';
   /* istanbul ignore else */
   if (typeof params === 'string') name = params;
 
-  Vue.component(name, component);
+  app.component(name, component);
 };
 
 component.install = plugin;
