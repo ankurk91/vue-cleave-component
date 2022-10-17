@@ -31,7 +31,7 @@
                 class="form-control"
                 :options="options.creditCard"
                 placeholder="Credit card"></cleave>
-              <small class="form-text text-muted">{{form.cardNumber}}</small>
+              <small class="form-text text-muted">{{ form.cardNumber }}</small>
             </div>
 
             <div class="form-group">
@@ -40,7 +40,7 @@
                 v-model="form.phoneNumber"
                 class="form-control"
                 :options="options.phoneNumber"></cleave>
-              <small class="form-text text-muted">{{form.phoneNumber}}</small>
+              <small class="form-text text-muted">{{ form.phoneNumber }}</small>
             </div>
 
             <div class="form-group">
@@ -50,7 +50,7 @@
                       class="form-control"
                       :raw="false"
                       :options="options.date"></cleave>
-              <small class="form-text text-muted">{{form.date}}</small>
+              <small class="form-text text-muted">{{ form.date }}</small>
             </div>
 
             <div class="form-group">
@@ -58,7 +58,7 @@
               <cleave v-model="form.number"
                       class="form-control"
                       :options="options.number"></cleave>
-              <small class="form-text text-muted">{{form.number}}</small>
+              <small class="form-text text-muted">{{ form.number }}</small>
             </div>
 
             <hr>
@@ -93,72 +93,72 @@
   </div>
 </template>
 
-<script>
-  import Cleave from '../src/index.js';
-  import 'cleave.js/dist/addons/cleave-phone.us.js';
+<script lang="js">
+import Cleave from '../src/index.js';
+import 'cleave.js/dist/addons/cleave-phone.us.js';
 
-  export default {
-    name: 'app',
-    data() {
-      return {
-        cardType: null,
-        form: {
-          cardNumber: null,
-          phoneNumber: null,
-          date: null,
-          number: 1234567,
+export default {
+  name: 'app',
+  data() {
+    return {
+      cardType: null,
+      form: {
+        cardNumber: null,
+        phoneNumber: null,
+        date: null,
+        number: 1234567,
+      },
+      // https://github.com/nosir/cleave.js/blob/master/doc/options.md
+      options: {
+        creditCard: {
+          creditCard: true,
+          delimiter: '-',
+          onCreditCardTypeChanged: this.onCardChange,
+          onValueChanged: this.onValueChanged,
         },
-        // https://github.com/nosir/cleave.js/blob/master/doc/options.md
-        options: {
-          creditCard: {
-            creditCard: true,
-            delimiter: '-',
-            onCreditCardTypeChanged: this.onCardChange,
-            onValueChanged: this.onValueChanged,
-          },
-          phoneNumber: {
-            phone: true,
-            phoneRegionCode: 'US',
-            delimiter: '-',
-          },
-          date: {
-            date: true,
-            datePattern: ['d', 'm', 'Y'],
-            delimiter: '/',
-          },
-          number: {
-            prefix: '$ ',
-            numeral: true,
-            numeralPositiveOnly: true,
-            noImmediatePrefix: true,
-            rawValueTrimPrefix: true,
-            numeralIntegerScale: 9,
-            numeralDecimalScale: 2
-          },
+        phoneNumber: {
+          phone: true,
+          phoneRegionCode: 'US',
+          delimiter: '-',
         },
-      }
+        date: {
+          date: true,
+          datePattern: ['d', 'm', 'Y'],
+          delimiter: '/',
+        },
+        number: {
+          prefix: '$ ',
+          numeral: true,
+          numeralPositiveOnly: true,
+          noImmediatePrefix: true,
+          rawValueTrimPrefix: true,
+          numeralIntegerScale: 9,
+          numeralDecimalScale: 2
+        },
+      },
+    }
+  },
+  components: {
+    Cleave
+  },
+  methods: {
+    submit() {
+      console.log('Form submit event', this.form);
     },
-    components: {
-      Cleave
+    onCardChange(type) {
+      console.log('cardType: ', type);
+      this.cardType = type
     },
-    methods: {
-      submit() {
-        console.log('Form submit event', this.form);
-      },
-      onCardChange(type) {
-        console.log('cardType: ', type);
-        this.cardType = type
-      },
-      onValueChanged(e) {
-        console.log('onValueChanged', e);
-        console.log(this.form)
-      },
-      setNewCardValue() {
-        this.form.cardNumber = '4111111111111111';
-      },
-      setDateDelimiter() {
-        this.options.date.delimiter = '-';
-      }
+    onValueChanged(e) {
+      console.log('onValueChanged', e);
+      console.log(this.form)
     },
-  }
+    setNewCardValue() {
+      this.form.cardNumber = '4111111111111111';
+    },
+    setDateDelimiter() {
+      this.options.date.delimiter = '-';
+    }
+  },
+}
 </script>

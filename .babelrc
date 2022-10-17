@@ -15,9 +15,7 @@
       }
     ]
   ],
-  "plugins": [
-
-  ],
+  "plugins": [],
   "env": {
     "test": {
       "presets": [

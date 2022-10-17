@@ -1,4 +1,5 @@
 **I'm submitting a ...**  (check one with "x")
+
 ```
 [ ] Bug report => search github for a similar issue or PR before submitting
 [ ] Feature request
@@ -6,8 +7,9 @@
 ```
 
 **Tell about your platform**
+
 * cleave.js version : 1.x.x
-* Vue.js version : 3.0.x
+* Vue.js version : 3.2
 * Browser name and version : Chrome|Firefox|Edge x.x.x
 * This package version : 3.x.x
 

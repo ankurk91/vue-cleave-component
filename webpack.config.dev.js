@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
@@ -15,10 +16,10 @@ module.exports = {
     alias: {
       vue: '@vue/runtime-dom'
     },
-    extensions: ['.js', '.json', '.vue'],
   },
   entry: './examples/index.js',
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
     filename: "js/[name].[chunkhash].js"
@@ -62,8 +63,6 @@ module.exports = {
       }
     ]
   },
-  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
-  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
     moduleIds: 'deterministic',
     runtimeChunk: {
@@ -88,22 +87,24 @@ module.exports = {
       hash: false,
       template: './examples/index.html',
       minify: {
-        removeComments: false,
-        collapseWhitespace: false,
-        removeAttributeQuotes: false,
-        minifyJS: false,
-        minifyCSS: false,
-        minifyURLs: false,
+        removeComments: isProduction,
+        collapseWhitespace: isProduction,
+        removeAttributeQuotes: isProduction,
+        minifyJS: isProduction,
+        minifyCSS: isProduction,
+        minifyURLs: isProduction,
       }
+    }),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: true
     }),
     new VueLoaderPlugin(),
   ],
   devServer: {
-    firewall: false,
     host: 'localhost',
-    port: 9000,
+    port: 9002,
     open: true,
-    liveReload: false,
     client: {
       overlay: {
         warnings: false,
@@ -112,7 +113,7 @@ module.exports = {
     },
     static: path.resolve(process.cwd(), 'docs'),
   },
-  devtool: 'eval-cheap-source-map',
+  devtool: isProduction ? false : 'eval-cheap-source-map',
   performance: {
     hints: false,
   },

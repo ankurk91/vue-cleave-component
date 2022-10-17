@@ -14,23 +14,32 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Using Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - run: yarn install --non-interactive --frozen-lockfile
-      - run: yarn test --verbose
-      - run: bash <(curl -s https://codecov.io/bash)
-      - run: yarn run build
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install pnpm
+        run: npm install -g pnpm@^7
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Execute tests
+        run: npm run test
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: false
+
+      - run: npm run build
+
 

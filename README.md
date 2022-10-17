@@ -32,10 +32,6 @@ Vue.js component for [Cleave.js](http://nosir.github.io/cleave.js/)
 ## Installation
 
 ```bash
-# yarn
-yarn add vue-cleave-component
-
-# npm
 npm install vue-cleave-component --save
 ```
 
@@ -78,8 +74,9 @@ npm install vue-cleave-component --save
 import {createApp} from 'vue';
 import Cleave from 'vue-cleave-component';
 // your app initilization logic goes here
-const app = createApp({}).mount('#app')
+const app = createApp({});
 app.use(Cleave);
+app.mount('#app');
 ```
 
 This will register a global component `<cleave>`
@@ -102,29 +99,30 @@ The component accepts these props:
 <!-- cleave.js -->
 <script src="https://cdn.jsdelivr.net/npm/cleave.js@1"></script>
 <!-- Vue.js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-cleave-component@3"></script>
 <script>
-    const app = Vue.createApp({}).mount('#app')
+    const app = Vue.createApp({});
     app.use(VueCleave);
+    app.mount('#app');
 </script>
 ```
 
 ## Run examples on your localhost
 
 * Clone this repo
-* You should have node-js `>=12.13` and yarn `>=1.22` pre-installed
-* Install dependencies `yarn install`
-* Run webpack dev server `yarn start`
-* This should open the demo page at ``http://localhost:9000`` in your default web browser
+* Make sure you have node-js `>=18.9` and [pnpm](https://pnpm.io/) `>=7.x` pre-installed
+* Install dependencies `pnpm install`
+* Run webpack dev server `npm start`
+* This should open the demo page in your default web browser
 
 ### Testing
 
 * This package is using [Jest](https://github.com/facebook/jest)
   and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder
-* Execute tests with this command `yarn test`
+* Execute tests with this command `npm test`
 
 ## Changelog
 

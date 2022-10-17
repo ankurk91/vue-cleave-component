@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -15,7 +14,6 @@ module.exports = {
     alias: {
       vue: '@vue/runtime-dom'
     },
-    extensions: ['.js', '.json', '.vue']
   },
   entry: {
     'vue-cleave': './src/index.js',
@@ -36,6 +34,7 @@ module.exports = {
     },
   },
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     library: 'VueCleave',
@@ -76,7 +75,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+    }),
     new VueLoaderPlugin(),
   ],
   devtool: false,
