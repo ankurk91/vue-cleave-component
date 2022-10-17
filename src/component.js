@@ -3,6 +3,9 @@ import {defineComponent, h} from 'vue';
 
 export default defineComponent({
   name: 'cleave',
+  compatConfig: {
+    MODE: 3
+  },
   render() {
     return h('input', {
       type: 'text',
